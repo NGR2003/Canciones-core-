@@ -11,4 +11,6 @@ import com.nicolasgarcia.modelos.Cancion;
 public interface RepositorioCanciones extends CrudRepository<Cancion, Long> {
 	
 	List<Cancion> findAll();
+	
+	// Cancion save(Cancion c);
 }

@@ -14,6 +14,13 @@
 				<li>${cancion.artista} - ${cancion.titulo}</li>
 				<a href="/canciones/detalles/${cancion.id}">Detalle</a>
 			</c:forEach>
+			<div>
+				<form action="/agregar/cancion" method="GET">
+					<button>
+						Agregar Cancion
+					</button>
+				</form>
+			</div>
 		</div>
 	</body>
 </html>
