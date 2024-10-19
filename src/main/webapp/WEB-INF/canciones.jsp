@@ -6,21 +6,20 @@
 	<head>
 		<meta charset="UTF-8">
 		<title>Proyecto canciones</title>
+		<link href="/estilos/estilos.css" rel="stylesheet"/>
 	</head>
 	<body>
 		<h1> Canciones </h1>
 		<div>
 			<c:forEach items="${Canciones}" var="cancion">
 				<li>${cancion.artista} - ${cancion.titulo}</li>
-				<a href="/canciones/detalles/${cancion.id}">Detalle</a>
+					<a href="/canciones/detalles/${cancion.id}">Detalle</a>
 			</c:forEach>
-			<div>
 				<form action="/agregar/cancion" method="GET">
 					<button>
 						Agregar Cancion
 					</button>
 				</form>
-			</div>
 		</div>
 	</body>
 </html>

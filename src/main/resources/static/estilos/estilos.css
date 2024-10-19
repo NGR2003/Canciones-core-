@@ -1,0 +1,114 @@
+@charset "UTF-8"; /* Define el conjunto de caracteres usado en este archivo CSS */
+
+/* Estilo general para el cuerpo de la página */
+body {
+    font-family: Arial, sans-serif; /* Establece la fuente predeterminada */
+    background-color: #f4f4f4; /* Color de fondo suave */
+    margin: 0; /* Quita márgenes alrededor del cuerpo */
+    padding: 20px; /* Agrega espacio interior alrededor del contenido */
+    display: flex; /* Usa Flexbox para organizar el contenido */
+    justify-content: center; /* Centra horizontalmente todo el contenido dentro del body */
+    align-items: center; /* Centra verticalmente el contenido */
+    flex-direction: column; /* Organiza el contenido en una columna */
+}
+
+/* Estilo para el título principal */
+h1 {
+    text-align: center; /* Centra el texto del título */
+    color: #333; /* Color del texto oscuro */
+    margin-bottom: 20px; /* Añade espacio debajo del título */
+}
+
+/* Contenedor principal que agrupa los elementos */
+div {
+    background-color: #fff; /* Fondo blanco para el contenedor */
+    padding: 20px; /* Espacio interior alrededor del contenido */
+    border-radius: 8px; /* Esquinas redondeadas del contenedor */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Sombra suave para dar profundidad */
+    max-width: 600px; /* Ancho máximo del contenedor */
+	width: 90%; /* Anchura del div */
+    display: flex; /* Flexbox para distribuir su contenido */
+    flex-direction: column; /* Los hijos se organizan en columna */
+    gap: 20px; /* Espacio entre los elementos dentro del contenedor */
+    margin: 10px 0;
+}
+
+/* Contenedor para las canciones */
+.song-container {
+    display: flex; /* Usa Flexbox para organizar los elementos */
+    flex-direction: column; /* Organiza las canciones en una columna */
+    width: 100%; /* Ocupa todo el ancho del contenedor padre */
+    gap: 10px; /* Espacio entre las canciones */
+}
+
+/* Estilo de cada canción en la lista */
+li {
+    list-style: none; /* Quita los puntos de la lista */
+    padding: 10px; /* Espacio interior para cada canción */
+    background-color: #e9e9e9; /* Fondo gris claro para cada canción */
+    border-radius: 5px; /* Esquinas redondeadas en cada canción */
+    font-weight: bold; /* Texto en negrita */
+    color: #555; /* Color gris para el texto */
+    display: flex; /* Flexbox para organizar título y botón */
+    justify-content: space-between; /* Distribuye título y botón en extremos opuestos */
+    align-items: center; /* Alinea verticalmente el texto y el botón */
+    gap: 10px; /* Espacio entre el texto y el botón */
+}
+
+/* Enlace de detalle de canción */
+a:link, a:visited {
+    background-color: green; /* Fondo verde para los enlaces */
+    color: white; /* Texto blanco para los enlaces */
+    padding: 10px 20px; /* Espacio interior para hacer más grande el botón */
+    text-decoration: none; /* Quita el subrayado de los enlaces */
+    display: flex; /* Flexbox para alinear el contenido del enlace */
+    justify-content: center; /* Centra el texto dentro del enlace */
+    align-items: center; /* Alinea el texto verticalmente */
+    border-radius: 5px; /* Esquinas redondeadas para el botón de enlace */
+    width: 120px; /* Ancho fijo para todos los botones de enlace */
+    margin-right: auto; /* Mueve los botones a la izquierda del contenedor */
+}
+
+a:hover, a:active {
+    background-color: #2ecc71; /* Cambia el fondo a un verde más claro cuando se pasa el mouse por encima */
+}
+
+/* Estilo del botón para agregar una canción */
+button {
+    padding: 15px; /* Añade espacio interior más grande para el botón */
+    background-color: #27ae60; /* Fondo verde para el botón */
+    color: white; /* Texto blanco */
+    border: none; /* Quita los bordes predeterminados */
+    border-radius: 5px; /* Esquinas redondeadas para el botón */
+    font-size: 16px; /* Tamaño de fuente más grande */
+    cursor: pointer; /* Cambia el cursor a mano cuando pasas sobre el botón */
+    margin-top: 20px; /* Añade espacio arriba del botón */
+}
+
+button:hover {
+    background-color: #2ecc71; /* Cambia el color de fondo al pasar el mouse por encima */
+}
+
+/* Estilo para los párrafos de detalles */
+p {
+    background-color: #fff; /* Fondo blanco para los párrafos */
+    padding: 15px; /* Espacio alrededor del texto */
+    border-radius: 8px; /* Bordes redondeados */
+    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    margin: 10px 0; /* Espacio entre los párrafos */
+    font-size: 18px; /* Tamaño de letra más legible */
+    color: #555; /* Color gris oscuro para el texto */
+    width: 100%; /* Los párrafos ocupan todo el ancho disponible */
+    max-width: 600px; /* Máximo ancho para que no se extiendan demasiado */
+}
+
+/* Estilo para el texto en negrita dentro de los párrafos */
+strong {
+    color: #000; /* Color negro para destacar las etiquetas */
+}
+
+.btn-eliminar:hover {
+	background-color: red;
+	flex-direction:row !important;
+}
+

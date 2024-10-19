@@ -6,13 +6,13 @@
 	<head>
 		<meta charset="UTF-8">
 		<title>Insert title here</title>
+		<link href="/estilos/estilos.css" rel="stylesheet"/>
 	</head>
 	<body>
 		<div>
-			<div>
+
 				<h1>Agregar Cancion</h1>
-			</div>
-			<div>
+
 				<form:form action="/agregar/cancion" method="POST" modelAttribute="cancion">
 				
 					<div>
@@ -46,6 +46,5 @@
 				</form:form>
 				<a href="/canciones">Volver a Lista de Canciones</a>
 			</div>
-		</div>
 	</body>
 </html>

@@ -6,6 +6,7 @@
 	<head>
 		<meta charset="UTF-8">
 		<title>Detalle Cancion</title>
+		<link href="/estilos/estilos.css" rel="stylesheet"/>
 	</head>
 	<body>
     <h2>Detalle de la Canción</h2>
@@ -17,6 +18,14 @@
     <p><strong>Fecha de Creación:</strong> ${cancion.fechaCreacion}</p>
     <p><strong>Fecha de Actualización:</strong> ${cancion.fechaActualizacion}</p>
     
-    <a href="/canciones">Volver a lista de canciones</a>
+    <div>
+    	<a href="/canciones" class="btn-volver">Volver a lista de canciones</a>
+    	<form action="/eliminar/cancion/${cancion.id}" method="POST">
+    	<input type="hidden" name="_method" value="DELETE"/>
+    	<button class="btn-eliminar">
+    		Eliminar Pelicula
+    	</button>
+    </form>
+    </div>
 </body>
 </html>
