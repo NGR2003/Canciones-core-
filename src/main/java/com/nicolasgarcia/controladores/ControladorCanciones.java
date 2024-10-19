@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 
 import com.nicolasgarcia.modelos.Cancion;
 import com.nicolasgarcia.servicios.ServicioCanciones;
@@ -64,6 +65,27 @@ public class ControladorCanciones {
 	@DeleteMapping("/eliminar/cancion/{id}")
 	public String procesarEliminarCancion(@PathVariable Long id) {
 		this.servicioCanciones.eliminaCancion(id);
+		return "redirect:/canciones";
+	}
+	
+	@GetMapping("/formulario/editar/cancion/{id}")
+	public String formularioEditarCancion(@ModelAttribute Cancion cancion,
+										  @PathVariable Long id,
+										  Model modelo) {
+		Cancion editarCancion = servicioCanciones.obtenerCancionPorId(id);
+		modelo.addAttribute("cancion", editarCancion);
+		
+		return "editarCancion.jsp";
+	}
+	
+	@PutMapping("/actualizar/cancion/{id}")
+	public String actualizarCancion(@Valid @ModelAttribute Cancion cancion,
+									BindingResult validaciones,
+									@PathVariable Long id) {
+		if(validaciones.hasErrors()) {
+			return "editarCancion.jsp";
+		}
+		this.servicioCanciones.actualizaCancion(cancion);
 		return "redirect:/canciones";
 	}
 }
