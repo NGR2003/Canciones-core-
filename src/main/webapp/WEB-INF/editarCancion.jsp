@@ -45,8 +45,8 @@
 					<button>
 						Editar
 					</button>	
+					<a href="/canciones">Volver a Lista de Canciones</a>
 				</form:form>
-				<a href="/canciones">Volver a Lista de Canciones</a>
 			</div>
 	</body>
 </html>

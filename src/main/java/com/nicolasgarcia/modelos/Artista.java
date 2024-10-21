@@ -1,44 +1,46 @@
 package com.nicolasgarcia.modelos;
 
 import java.util.Date;
+import java.util.List;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.PrePersist;
 import jakarta.persistence.PreUpdate;
 import jakarta.persistence.Table;
 import jakarta.persistence.Temporal;
 import jakarta.persistence.TemporalType;
+import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
 
 @Entity
-@Table(name="canciones")
-public class Cancion {
+@Table(name="artistas")
+public class Artista {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long id;
 	
-	@Size(min=5, message="Profavor proporcionar el titulo de la cancion sobre 5 caracteres")
-	private String titulo;
+	@NotBlank(message="Por favor proporciona el nombre del usuario  nombre del artista debe tener más de 2 caracteres.")
+	@Size(min = 2, max = 100)
+	private String nombre;
 	
-	@ManyToOne
-	@JoinColumn(name="id_artista")
-	private Artista artista;
+	@NotBlank(message="Por favor proporciona el apellido del usuario el apellido del artista debe tener más de 2 caracteres.")
+	@Size(min = 2)
+	private String apellido;
 	
-	@Size(min=3, message="Profavor proporcionar el album de la cancion sobre 3 caracteres")
-	private String album;
+	@NotBlank(message="Por favor proporciona una biografia para el artista la biografia del artista debe tener más de 3 caracteres.")
+	@Size(min = 3)
+	@Column(length=10000)	
+	private String Biografía;
 	
-	@Size(min=3, message="Profavor proporcionar el genero de la cancion sobre 3 caracteres")
-	private String genero;
-	
-	@Size(min=3, message="Profavor proporcionar el idioma de la cancion sobre 3 caracteres")
-	private String idioma;
-	
+	@OneToMany(mappedBy="artista", cascade=CascadeType.ALL,  fetch=FetchType.LAZY)
+	private List<Cancion> canciones;
 	
 	@Temporal(TemporalType.DATE)
 	@Column(name="fecha_creacion")
@@ -48,89 +50,64 @@ public class Cancion {
 	@Column(name="fecha_actualizacion")
 	private Date fechaActualizacion;
 	
-	public Cancion() {}
+	public Artista() {}
 
-	
 	public Long getId() {
 		return id;
 	}
-
 
 	public void setId(Long id) {
 		this.id = id;
 	}
 
-
-	public String getTitulo() {
-		return titulo;
+	public String getNombre() {
+		return nombre;
 	}
 
-
-	public void setTitulo(String titulo) {
-		this.titulo = titulo;
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
 	}
 
-
-	public Artista getArtista() {
-		return artista;
+	public String getApellido() {
+		return apellido;
 	}
 
-
-	public void setArtista(Artista artista) {
-		this.artista = artista;
+	public void setApellido(String apellido) {
+		this.apellido = apellido;
 	}
 
-
-	public String getAlbum() {
-		return album;
+	public String getBiografía() {
+		return Biografía;
 	}
 
-
-	public void setAlbum(String album) {
-		this.album = album;
+	public void setBiografía(String biografía) {
+		Biografía = biografía;
 	}
 
-
-	public String getGenero() {
-		return genero;
+	public List<Cancion> getCanciones() {
+		return canciones;
 	}
 
-
-	public void setGenero(String genero) {
-		this.genero = genero;
+	public void setCanciones(List<Cancion> canciones) {
+		this.canciones = canciones;
 	}
-
-
-	public String getIdioma() {
-		return idioma;
-	}
-
-
-	public void setIdioma(String idioma) {
-		this.idioma = idioma;
-	}
-
 
 	public Date getFechaCreacion() {
 		return fechaCreacion;
 	}
 
-
 	public void setFechaCreacion(Date fechaCreacion) {
 		this.fechaCreacion = fechaCreacion;
 	}
-
 
 	public Date getFechaActualizacion() {
 		return fechaActualizacion;
 	}
 
-
 	public void setFechaActualizacion(Date fechaActualizacion) {
 		this.fechaActualizacion = fechaActualizacion;
 	}
-
-
+	
 	@PrePersist
 	protected void onCreate() {
 		this.fechaCreacion = new Date();
@@ -141,4 +118,5 @@ public class Cancion {
 	protected void onUpdate() {
 		this.fechaActualizacion = new Date();
 	}
+	
 }
